@@ -31,8 +31,11 @@ const DefaultHeader = () => {
                 selectedKeys={[location.pathname.substr(1)]} // Highlight the selected menu item
                 style={{flex: 1, minWidth: 0}}
             >
-                <Menu.Item key={"products"}>
-                    <Link to={`/product`}>Продукти</Link>
+                <Menu.Item key={"posts"}>
+                    <Link to={`/post`}>Posts</Link>
+                </Menu.Item>
+                <Menu.Item key={"category"}>
+                    <Link to={`/`}>Category</Link>
                 </Menu.Item>
             </Menu>
 
