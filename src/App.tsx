@@ -11,6 +11,7 @@ import TestPage from "./components/test";
 import PostCreatePage from "./components/containers/post/create/PostCreatePage.tsx";
 import PostListPage from "./components/containers/post/list/PostListPage.tsx";
 import PostEditPage from "./components/containers/post/edit/PostEditPage.tsx";
+import Login from "./views/Login";
 //import CategoryListPage from "./components/containers/category/list/CategoryListPage.tsx";
 
 const App = () => (
@@ -22,6 +23,9 @@ const App = () => (
                 <Route path={"edit/:id"} element={<CategoryEditPage/>}/>
             </Route>
             <Route path={"test"} element={<TestPage/>}/>
+
+
+            <Route path={"login"} element={<Login/>}/>
 
             <Route path={"post"}>
                 <Route index element={<PostListPage/>}/>
