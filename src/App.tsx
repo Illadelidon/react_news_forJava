@@ -12,6 +12,7 @@ import PostCreatePage from "./components/containers/post/create/PostCreatePage.t
 import PostListPage from "./components/containers/post/list/PostListPage.tsx";
 import PostEditPage from "./components/containers/post/edit/PostEditPage.tsx";
 import Login from "./views/Login";
+import Register from "./views/Register";
 //import CategoryListPage from "./components/containers/category/list/CategoryListPage.tsx";
 
 const App = () => (
@@ -26,6 +27,7 @@ const App = () => (
 
 
             <Route path={"login"} element={<Login/>}/>
+            <Route path={"register"} element={<Register/>}/>
 
             <Route path={"post"}>
                 <Route index element={<PostListPage/>}/>
