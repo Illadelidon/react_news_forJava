@@ -36,6 +36,7 @@ export interface IPostSearch{
     categoryId?: number,
     page: number,
     size: number
+    keyword?: string,
 }
 export interface IPostEditPhoto{
     photo: string | undefined,

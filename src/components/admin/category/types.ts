@@ -6,10 +6,12 @@ export interface ICategoryCreate{
 export interface ICategoryItem{
     id:number;
     name:string;
+    description:string;
 }
 export interface ICategoryEdit {
     id: number;
     name: string;
+    description:string;
 }
 export interface IGetCategories{
     content:ICategoryItem[]

@@ -122,7 +122,7 @@ const PostEditPage : React.FC = () => {
         try {
             console.log("Send Data", sendData);
             await http_common.put("/api/posts", sendData);
-            navigate('/post');
+            navigate('/admin/post');
         }
         catch(ex) {
             console.log("Exception create category", ex);
@@ -134,7 +134,7 @@ const PostEditPage : React.FC = () => {
 
     return (
         <>
-            <h1>Редагування продукта</h1>
+            <h1>Редагування поста</h1>
 
             <Row gutter={16}>
                 <Form form={form}

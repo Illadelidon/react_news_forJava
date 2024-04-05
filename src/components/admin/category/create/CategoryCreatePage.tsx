@@ -2,6 +2,7 @@ import {NavigateFunction, useNavigate} from "react-router-dom";
 import {ICategoryCreate} from "../types.ts";
 import {Button, Form, Input, Row} from "antd";
 import http_common from "../../../../http_common.ts";
+import TextArea from "antd/es/input/TextArea";
 
 
 const CategoryCreatePage = () =>{
@@ -55,6 +56,18 @@ const onSubmit = async (values: ICategoryCreate)=>{
                         ]}
                     >
                         <Input autoComplete="name"/>
+                    </Form.Item>
+
+                    <Form.Item
+                        label="Description"
+                        name="description"
+                        htmlFor="description"
+                        rules={[
+                            {required: true, message: 'It is a required field!'},
+                            {min: 10, message: 'Name must have at least 10 symbols!'},
+                        ]}
+                    >
+                        <TextArea/>
                     </Form.Item>
 
 

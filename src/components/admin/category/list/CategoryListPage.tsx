@@ -8,7 +8,9 @@ import {useEffect, useState} from "react";
 import type {GetProp, TableProps} from 'antd';
 import qs from 'qs';
 
+
 type TablePaginationConfig = Exclude<GetProp<TableProps, 'pagination'>, boolean>;
+
 
 interface TableParams {
     pagination?: TablePaginationConfig;
@@ -35,10 +37,14 @@ const CategoryListPage = () => {
             dataIndex: 'name',
         },
         {
+            title: 'Description',
+            dataIndex: 'description',
+        },
+        {
             title: 'Edit',
             dataIndex: 'edit',
             render: (_, record) => (
-                <Link to={`/category/edit/${record.id}`}>
+                <Link to={`/admin/category/edit/${record.id}`}>
                     <Button type="primary" icon={<EditOutlined/>}>
                         Змінить
                     </Button>
@@ -129,10 +135,11 @@ const CategoryListPage = () => {
     return (
         <>
             <h1>Список категорій</h1>
-            <Link to={"/category/create"}>
+            <Link to={"/admin/category/create"}>
                 <Button type="primary" style={{margin: '5px'}}>
-                    ADD +
+                    Add category
                 </Button>
+
             </Link>
 
             <Table

@@ -1,10 +1,10 @@
-import {Button, Card, Col, Popconfirm, Typography} from "antd";
+import { Card, Col,  Typography} from "antd";
 import Meta from "antd/es/card/Meta";
-import {DeleteOutlined, EditOutlined} from '@ant-design/icons';
-import NotImage from '../../../../assets/imagenot.png';
-import {Link} from "react-router-dom";
-import {IPostItem} from "../types.ts";
-import {APP_ENV} from "../../../../env";
+
+import NotImage from '../../assets/imagenot.png';
+
+import {IPostItem} from "../../components/admin/post/types.ts";
+import {APP_ENV} from "../../env";
 
 const { Title } = Typography;
 
@@ -14,8 +14,8 @@ interface IPostCardProps {
 }
 
 const PostCard: React.FC<IPostCardProps> = (props) => {
-    const {item, handleDelete} = props;
-    const {id, name, files, description} = item;
+    const {item} = props;
+    const { name, files, description} = item;
 
     console.log("item", item)
 
@@ -37,31 +37,14 @@ const PostCard: React.FC<IPostCardProps> = (props) => {
                         />
 
                     }
-                    actions={[
-                        <Link to={`/post/edit/${id}`}>
-                            <Button type="primary" icon={<EditOutlined/>}>
-                                Edit
-                            </Button>
-                        </Link>,
 
-                        <Popconfirm
-                            title="Are you sure to delete this category?"
-                            onConfirm={() => handleDelete(id)}
-                            okText="Yes"
-                            cancelText="No"
-                        >
-                            <Button icon={<DeleteOutlined/>}>
-                                Delete
-                            </Button>
-                        </Popconfirm>
-                    ]}
                 >
 
                     <Meta
                         title={name}
                         description={
                             <>
-                                <Title level={5} type="success">{description.substring(0, 15)} ...</Title>
+                                <Title level={5} >{description.substring(0, 200)} ...</Title>
                             </>
                         }
 

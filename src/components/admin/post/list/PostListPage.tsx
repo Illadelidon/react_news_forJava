@@ -97,9 +97,9 @@ const PostListPage = () => {
         <>
             <h1>List of Posts</h1>
 
-            <Link to={"/post/create"}>
+            <Link to={"/admin/post/create"}>
                 <Button type="primary" style={{margin: '5px'}}>
-                    ADD +
+                    Add post
                 </Button>
             </Link>
             <Collapse defaultActiveKey={0}>

@@ -30,7 +30,7 @@ const PostCreatePage = () => {
                     'Content-Type': 'multipart/form-data',
                 },
             });
-            navigate('/post');
+            navigate("/");
         }
         catch(ex) {
             console.log("Exception create category", ex);

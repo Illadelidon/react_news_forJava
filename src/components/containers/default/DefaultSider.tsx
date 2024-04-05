@@ -15,10 +15,10 @@ const DefaultSider = () => {
             return {
                 key: `sub${key}`,
                 icon: React.createElement(icon),
-                label: `users ${index+1}`,
+                label: `subnav ${key}`,
 
-                children: new Array(3).fill(null).map((_, j) => {
-                    const subKey = index * 3 + j + 1;
+                children: new Array(4).fill(null).map((_, j) => {
+                    const subKey = index * 4 + j + 1;
                     return {
                         key: subKey,
                         label: `option${subKey}`,

@@ -6,6 +6,7 @@ import http_common from "../../../../http_common.ts";
 
 import {useEffect} from "react";
 import {Button, Form, Input, Row} from "antd";
+import TextArea from "antd/es/input/TextArea";
 
 
 const CategoryEditPage = () => {
@@ -70,6 +71,18 @@ const CategoryEditPage = () => {
                         ]}
                     >
                         <Input autoComplete="name"/>
+                    </Form.Item>
+
+                    <Form.Item
+                        label="Description"
+                        name="description"
+                        htmlFor="description"
+                        rules={[
+                            {required: true, message: 'It is a required field!'},
+                            {min: 10, message: 'Name must have at least 10 symbols!'},
+                        ]}
+                    >
+                        <TextArea/>
                     </Form.Item>
 
 
