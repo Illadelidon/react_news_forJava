@@ -21,7 +21,7 @@ const onSubmit = async (values: ICategoryCreate)=>{
                 'Content-Type':'multipart/form-data',
             },
         });
-        navigate('/');
+        navigate('/admin/category');
     }
     catch (ex){
         console.log("Exception create category",ex);

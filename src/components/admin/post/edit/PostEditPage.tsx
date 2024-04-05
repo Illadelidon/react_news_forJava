@@ -216,7 +216,7 @@ const PostEditPage : React.FC = () => {
                         <Button style={{margin: 10}} type="primary" htmlType="submit">
                             Зберети
                         </Button>
-                        <Button style={{margin: 10}} htmlType="button" onClick={() =>{ navigate('/post')}}>
+                        <Button style={{margin: 10}} htmlType="button" onClick={() =>{ navigate('/admin/post')}}>
                             Cancel
                         </Button>
                     </Row>

@@ -61,7 +61,7 @@ const PostCard: React.FC<IPostCardProps> = (props) => {
                         title={name}
                         description={
                             <>
-                                <Title level={5} type="success">{description.substring(0, 15)} ...</Title>
+                                <Title level={5} >{description.substring(0, 50)} ...</Title>
                             </>
                         }
 

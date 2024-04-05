@@ -1,9 +1,9 @@
-import {Button, Col, Collapse, Form, Input, Pagination, Row, Select} from "antd";
+import {Button, Col,  Pagination, Row, } from "antd";
 import {Link, useSearchParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import {IGetPosts, IPostSearch} from "../types.ts";
 import http_common from "../../../../http_common.ts";
-import {ISelectItem} from "../../../helpers/types.ts";
+
 import PostCard from "./PostCard.tsx";
 
 const PostListPage = () => {
@@ -12,17 +12,11 @@ const PostListPage = () => {
         totalCount: 0
     });
 
-    const [categories, setCategories] = useState<ISelectItem[]>([]);
+
 
     const [searchParams, setSearchParams] = useSearchParams();
 
-    useEffect(() => {
-        http_common.get<ISelectItem[]>("/api/categories/names")
-            .then(resp=> {
-                //console.log("list categories", resp.data);
-                setCategories(resp.data);
-            });
-    },[]);
+
 
     const [formParams, setFormParams] = useState<IPostSearch>({
         name: searchParams.get('name') || "",
@@ -32,11 +26,9 @@ const PostListPage = () => {
         size: Number(searchParams.get('size')) || 3
     });
 
-    const [form] = Form.useForm<IPostSearch>();
 
-    const onSubmit = async (values: IPostSearch) => {
-        findCategories({...formParams, page: 1, name: values.name, description: values.description, categoryId: values.categoryId});
-    }
+
+
 
     useEffect(() => {
         const fetchData = async () => {
@@ -102,81 +94,8 @@ const PostListPage = () => {
                     Add post
                 </Button>
             </Link>
-            <Collapse defaultActiveKey={0}>
-                <Collapse.Panel key={1} header={"Search Panel"}>
-                    <Row gutter={16}>
-                        <Form form={form}
-                              onFinish={onSubmit}
-                              layout={"vertical"}
-                              style={{
-                                  minWidth: '100%',
-                                  display: 'flex',
-                                  flexDirection: 'column',
-                                  justifyContent: 'center',
-                                  padding: 20,
-                              }}
-                        >
-                            <Form.Item
-                                label="Name"
-                                name="keywordName"
-                                htmlFor="keywordName"
-                            >
-                                <Input autoComplete="keyword"/>
-                            </Form.Item>
 
-                            <Form.Item
-                                label="Description"
-                                name="keywordDescription"
-                                htmlFor="keywordDescription"
-                            >
-                                <Input autoComplete="keyword"/>
-                            </Form.Item>
 
-                            <Form.Item
-                                label="Категорія"
-                                name="categoryId"
-                                htmlFor="categoryId"
-                            >
-                                <Select
-                                    defaultValue={"Усі категорії"}
-                                >
-                                    <Select.Option value="0">Усі категорії</Select.Option>
-                                    {
-                                        categories.map(x=> (
-                                            <Select.Option value={x.id}>{x.name}</Select.Option>
-                                        ))
-                                    }
-
-                                </Select>
-                            </Form.Item>
-
-                            <Row style={{display: 'flex', justifyContent: 'center'}}>
-                                <Button style={{margin: 10}} type="primary" htmlType="submit">
-                                    Search
-                                </Button>
-                                <Button style={{margin: 10}} htmlType="button" onClick={() => {
-                                }}>
-                                    Cansel
-                                </Button>
-                            </Row>
-                        </Form>
-                    </Row>
-                </Collapse.Panel>
-            </Collapse>
-            <Row style={{width: '100%', display: 'flex', marginTop: '25px', justifyContent: 'center'}}>
-                <Pagination
-                    showTotal={(total, range) => {
-                        console.log("range ", range);
-                        return (`${range[0]}-${range[1]} із ${total} записів`);
-                    }}
-                    current={(formParams.page)}
-                    pageSize={formParams.size}
-                    total={totalCount}
-                    onChange={handlePageChange}
-                    pageSizeOptions={[3, 6, 12, 24]}
-                    showSizeChanger
-                />
-            </Row>
 
             <Row gutter={16}>
                 <Col span={24}>

@@ -22,7 +22,7 @@ const CategoryEditPage = () => {
                     'Content-Type': 'multipart/form-data',
                 },
             });
-            navigate('/');
+            navigate('/admin/category');
         } catch (ex) {
             console.log("Exception create category", ex);
         }
@@ -93,7 +93,7 @@ const CategoryEditPage = () => {
                             Додати
                         </Button>
                         <Button style={{margin: 10}} htmlType="button" onClick={() => {
-                            navigate('/')
+                            navigate('/admin/category')
                         }}>
                             Скасувати
                         </Button>
